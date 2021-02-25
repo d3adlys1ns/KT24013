@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+struct node {
+    int x;
+    node *next;
+};
+//initialize head
+void initNode(node *head, int n){
+    head->x = n;
+    head->next = NULL;
+}
+//add a node to the list at tail
+void addNode(node *head, int n) {
+    node *newNode = new node;
+    newNode->x = n;
+    newNode->next = NULL;
+    node *cur = head;
+    while(cur) {
+        if(cur->next == NULL) {
+            cur->next = newNode;
+            return;
+        }
+        cur = cur->next;
+    }
+}
+//print list
+void printList(node *head) {
+    while (1) {
+        cout << head->x << ' ';
+        if (head->next == NULL) break;
+        else head = head->next;
+    }
+}
+void insert_atFront(node **head, int n) {
+    node* newNode = new node();
+    newNode->x = n;
+    newNode->next = *head;
+    *head = newNode;
+}
+///here double asterisk is needed in the function insert_atFront() because we want to modify the head
+///thus passing double pointer of head enables us to change the head
+//void insert_atPosition(node **head, int pos, int v)
+//node *searchNode(node *head, int n)
+//bool deleteNode(node **head, int n)
+int main() {
+    node* head = new node;
+    initNode(head, 10);
+    addNode(head, 20);
+    addNode(head, 50);
+    printList(head);
+    insert_atFront(&head, 300);
+    cout << '\n';
+    printList(head);
+}
