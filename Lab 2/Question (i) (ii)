@@ -1,0 +1,7 @@
+Answer to the question number (i) :
+here double asterisk is needed in the function insert_atFront() because we want to modify the head thus passing double pointer of head enables us to change the head.
+
+Answer to the question number (ii) :
+void insert_atPosition(node **head, int pos, int v)
+node *searchNode(node *head, int n)
+bool deleteNode(node **head, int n)
