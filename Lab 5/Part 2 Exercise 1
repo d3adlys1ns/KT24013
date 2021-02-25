@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+void Sort(int arr[], int Size) {
+    for (int i = 0; i < Size; i++) {
+        for (int j = i + 1; j < Size; j++) {
+            if (arr[j] < arr[i]) swap(arr[j], arr[i]);
+        }
+    }
+
+}
+int main(){
+    int arr[3];
+    cin >> arr[0] >> arr[1] >> arr[2];
+    cout << "Initial values\n";
+    for (int i = 0; i < 3; i++) cout << arr[i] << ' ';
+    cout << '\n';
+    Sort(arr, 3);
+    cout << "Sorted values\n";
+    for (int i = 0; i < 3; i++) cout << arr[i] << ' ';
+    return 0;
+}
